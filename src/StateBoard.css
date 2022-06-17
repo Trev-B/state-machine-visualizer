@@ -1,0 +1,51 @@
+.StateBoard {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 94%;
+    border: none;
+}
+
+.ExpressionChecker {
+    display: flex;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 20px;
+   
+}
+
+.ExpressionAcc {
+    color: green;
+}
+
+.ExpressionRej {
+    color: red;
+}
+
+.SelectedTransitionStates * {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border-radius: 18px;
+    border: white solid;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px 5px 5px 5px;
+    transition: box-shadow 0.35s opacity 0.35;
+}
+
+button:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+}
+
+button:active {
+    opacity: 0.7;
+}

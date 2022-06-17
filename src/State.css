@@ -1,0 +1,47 @@
+:root {
+    --state-black-color: rgb(26, 26, 26);
+    --state-white-color: rgb(255, 255, 255);
+    --state-transition-time: 0.15s;
+}
+
+.state-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    background: var(--state-black-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    border: 3px solid var(--state-white-color);
+    transition: opacity var(--state-transition-time), color var(--state-transition-time), background var(--state-transition-time), border 0.2s;
+    user-select: none;
+    cursor: grab;
+    border-radius: 50px;
+}
+
+.state-div:hover {
+    border: 3px solid var(--state-black-color);
+    background: var(--state-white-color);
+    color: var(--state-black-color);
+}
+
+.state-div:active {
+    opacity: 0.5;
+}
+
+.state-accepting {
+    border: 7px double var(--state-white-color);
+}
+
+.state-accepting:hover {
+    border: 7px double var(--state-black-color);
+}
+
+.state-animate {
+    border: 8px solid rgb(170, 0, 0);
+    color: white;
+}
