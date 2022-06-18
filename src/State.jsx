@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './State.css';
 
-const State = ({num, addConnection, changeAccepting, data}) => {
+const State = ({num, addConnection, changeAccepting, data, updateMoved}) => {
     
     const [isAccepting, setIsAccepting] = useState(false);
 
@@ -46,6 +46,7 @@ const State = ({num, addConnection, changeAccepting, data}) => {
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            updateMoved(Math.random());
         }
       
         function closeDragElement() {

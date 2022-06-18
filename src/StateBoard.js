@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import State from './State.jsx';
 import './StateBoard.css';
 import { StateObj } from './State.js';
+import Transition from './Transition.jsx';
 
 const StateBoard = () => {
 
@@ -17,21 +18,23 @@ const StateBoard = () => {
     const [firstRender, setFirstRender] = useState(false);
 
     const [changeAccepting, setChangeAccepting] = useState(false);
+    const [moved, setMoved] = useState(false);
 
     let timer = 500;
 
-    // useEffect(() => {
-    //     const test = [  new StateObj(0),
-    //                     new StateObj(1),
-    //                     new StateObj(2) ];
+    useEffect(() => {
+        const test = [  new StateObj(0),
+                        new StateObj(1),
+                        new StateObj(2)];
         
-    //     test[0].addTransition(test[1], 'a');
-    //     test[1].addTransition(test[2], 'b');
+        test[0].addTransition(test[1], 'a');
+        test[1].addTransition(test[2], 'b');
+        test[0].addTransition(test[2], 'c');
 
-    //     setStates(test);
-    //     setNumOfStates(states.length);
+        setStates(test);
+        setNumOfStates(states.length);
 
-    // }, [])
+    }, [])
 
     useEffect(() => {
 
@@ -113,34 +116,56 @@ const StateBoard = () => {
         setStates([]);
     }
 
+    const renderTransitions = () => {
+        return states.map((state) => {
+            
+            if(state.transitions.length !== 0) {
+
+                return state.transitions.map((trans) => 
+                    
+                    (<Transition key={`trans${state.id}`} num={`trans${state.id}`} transFrom={state.id} transTo={trans.transition.id} symbol={trans.symbol} moved={moved}/>))
+            }
+        })
+    }
+
     return (
         <div className='StateBoard' id='StateBoard'>
             {/* <h1>Number of States: {numOfStates}</h1> */}
-            <button onClick={createState}>Create State</button>
-            <button className='ConnectionButton'onClick={setConnection}>Set Connection</button>
 
-            <button onClick={setAcceptingState}>Set Accepting States</button>
+            <div className='StateBoardButtons'>
 
-            <button onClick={clearAllStates}>Clear All States</button>
+                <button onClick={createState}>Create State</button>
+                <button className='ConnectionButton'onClick={setConnection}>Set Connection</button>
+                <button onClick={setAcceptingState}>Set Accepting States</button>
+                <button onClick={clearAllStates}>Clear All States</button>
 
-            {selectStatesSwitch ? <h2>Select two states to add a connection to.</h2> : <div/>}
-            {changeAccepting ? <h2>Click states to toggle whether they are accepting/rejecting.</h2> : <div/>}
-            <div className='SelectedTransitionStates'>{selectedStates.map((state, index) => (<h1 key={index}>{state.id}</h1>))}</div>
+            </div>
+
+            {selectStatesSwitch ? 
+            <h2>Select two states to add a connection to.</h2> : <div/>}
+
+            {changeAccepting ? 
+            <h2>Click states to toggle whether they are accepting/rejecting.</h2> : <div/>}
+
+            <div className='SelectedTransitionStates'>
+                {selectedStates.map((state, index) => (<h1 key={index}>{state.id}</h1>))}
+            </div>
 
             {symbolPrompt ? <form onSubmit={handleTransSymbol}>
 
                                 <input type="text" id="symbol"/>
-
                                 <button type="submit">Add Transition</button>
 
-                            </form> : <div/>}
+                            </form> : <div/>
+            }
+
+            <div className='AllTransitions'>{renderTransitions()}</div>
 
             <div className='ExpressionChecker'>
 
                 <form className="ExpressionForm" onSubmit={testExpression}>
 
                     <input type="text" id="expression"/>
-
                     <button type="submit">Check Expression</button>      
                     
                 </form>
@@ -155,7 +180,8 @@ const StateBoard = () => {
                                             num={state.id} 
                                             addConnection={addConnection} 
                                             changeAccepting={changeAccepting} 
-                                            data={state} />)
+                                            data={state}
+                                            updateMoved={setMoved} />)
             }
 
         </div>

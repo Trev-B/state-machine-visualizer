@@ -1,0 +1,14 @@
+.Transition {
+    color: red;
+    position: absolute;
+    transform-origin: bottom left;
+}
+
+.TransSymbol {
+    transform-origin: center;
+    transform: scaleX(0.01);
+}
+
+.Line {
+    border: 1px solid black;
+}
