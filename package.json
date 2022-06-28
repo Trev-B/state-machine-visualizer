@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Trev-B.github.io/state-machine-vizualizer",
-  "name": "state-machine-vizualizer",
+  "homepage": "http://Trev-B.github.io/state-machine-visualizer",
+  "name": "state-machine-visualizer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
