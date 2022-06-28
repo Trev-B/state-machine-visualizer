@@ -22,19 +22,19 @@ const StateBoard = () => {
 
     let timer = 500;
 
-    useEffect(() => {
-        const test = [  new StateObj(0),
-                        new StateObj(1),
-                        new StateObj(2)];
+    // useEffect(() => {
+    //     const test = [  new StateObj(0),
+    //                     new StateObj(1),
+    //                     new StateObj(2)];
         
-        test[0].addTransition(test[1], 'a');
-        test[1].addTransition(test[2], 'b');
-        test[0].addTransition(test[2], 'c');
+    //     test[0].addTransition(test[1], 'a');
+    //     test[1].addTransition(test[2], 'b');
+    //     test[0].addTransition(test[2], 'c');
 
-        setStates(test);
-        setNumOfStates(states.length);
+    //     setStates(test);
+    //     setNumOfStates(states.length);
 
-    }, [])
+    // }, [])
 
     useEffect(() => {
 
@@ -123,7 +123,7 @@ const StateBoard = () => {
 
                 return state.transitions.map((trans) => 
                     
-                    (<Transition key={`trans${state.id}`} num={`trans${state.id}`} transFrom={state.id} transTo={trans.transition.id} symbol={trans.symbol} moved={moved}/>))
+                    (<Transition key={`trans${state.id}${trans.symbol}`} num={`trans${state.id}${trans.symbol}`} transFrom={state.id} transTo={trans.transition.id} symbol={trans.symbol} moved={moved}/>))
             }
         })
     }

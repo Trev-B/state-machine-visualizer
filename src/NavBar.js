@@ -5,7 +5,7 @@ import './NavBar.css';
 const NavBar = () => {
     return (
         <div className='NavBar'>
-            <h1>DFSM Vizualizer</h1>
+            <h1>DFSM Visualizer</h1>
         </div>
     );
 }
