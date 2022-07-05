@@ -1,14 +1,28 @@
-.Transition {
-    color: red;
+.Line {
+    color: black;
+    position: absolute;
+    transform-origin: bottom left;
+    border: 1px solid black;
+}
+
+/* .TransSymbol {
+    font-size: 40px;
+    color: black;
     position: absolute;
     transform-origin: bottom left;
 }
 
-.TransSymbol {
+.Arrow {
+    font-size: 40px;
+    color: black;
+    position: absolute;
     transform-origin: center;
-    transform: scaleX(0.01);
-}
-
-.Line {
     border: 1px solid black;
+} */
+
+.TransInfo {
+    font-size: 40px;
+    color: black;
+    position: absolute;
+    transform-origin: bottom left;
 }

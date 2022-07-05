@@ -26,19 +26,34 @@ const Transition = ({num, transFrom, symbol, transTo, moved}) => {
 
         me.style.top = '0px';    
         me.style.left = '0px';         
+        me.style.transform = ` translate(${x1}px, ${y1}px) rotate(${angle}deg) scaleX(${distance/2}) `;
 
-        me.style.transform = ` translate(${x1}px, ${y1}px) rotate(${angle}deg) scaleX(${distance/2}) `;   
+        const transInfo = document.getElementById(num + 'info');  
+        transInfo.style.top = '0px';
+        transInfo.style.left = '0px';
+        transInfo.style.transform = ` translate(${(x2+x1)/2}px, ${(y2+y1)/2}px) `;
          
-        //document.getElementById(num + 'symbol').style.transform = `scaleX(${0})`;    
+        // const symbol = document.getElementById(num + 'symbol');  
+        // symbol.style.top = '0px';
+        // symbol.style.left = '0px';
+        // symbol.style.transform = ` translate(${(x2+x1)/2}px, ${(y2+y1)/2}px) `;
 
+        const arrow = document.getElementById(num + 'arrow');
+        // arrow.style.top = '0px';
+        // arrow.style.left = '0px';
+        // arrow.style.transform = ` translate(${(x2+x1)/2 }px, ${(y2+y1)/2 }px) rotate(${angle}deg)`;
+        arrow.style.transform = `  rotate(${angle}deg)`;
     }
 
     return (
-        <div className='Transition' id={num}>
+        <div className='Transition'>
 
-            {/* <p className='TransSymbol' id={num + 'symbol'}>{symbol}</p> */}
+            <div className='Line' id={num}></div>
 
-            <div className='Line'></div>
+            <div className='TransInfo' id={num + 'info'}> 
+                <div className='Arrow' id={num + 'arrow'}>&#62;</div>
+                <div className='TransSymbol' id={num + 'symbol'}>{symbol}</div>
+            </div>
 
         </div>
     );
