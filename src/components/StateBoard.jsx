@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import State from './State.jsx';
-import './StateBoard.css';
-import { StateObj } from './State.js';
+import '../styles/StateBoard.css';
+import { StateObj } from '../dependencies/State.js';
 import Transition from './Transition.jsx';
 
 const StateBoard = () => {

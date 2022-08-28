@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Transition.css';
+import '../styles/Transition.css';
 
 const Transition = ({num, transFrom, symbol, transTo, moved}) => {
 

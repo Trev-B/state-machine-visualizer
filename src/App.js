@@ -1,6 +1,6 @@
-import './App.css';
-import StateBoard from './StateBoard.js';
-import NavBar from './NavBar.js';
+import './styles/App.css';
+import StateBoard from './components/StateBoard.jsx';
+import NavBar from './components/NavBar.jsx';
 
 function App() {
   

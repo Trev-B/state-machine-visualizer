@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './State.css';
+import '../styles/State.css';
 
 const State = ({num, addConnection, changeAccepting, data, updateMoved}) => {
     
